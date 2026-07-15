@@ -1,8 +1,6 @@
 package interfaces;
 
-package music.wind;
 
-import music.Playable;
 
 public class Saxophone implements Playable {
 
