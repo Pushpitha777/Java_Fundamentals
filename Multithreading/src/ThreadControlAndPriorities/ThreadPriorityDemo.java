@@ -1,11 +1,12 @@
 package ThreadControlAndPriorities;
 
-class MyThread extends Thread {
+class PriorityThread extends Thread {
 
-    public MyThread(String name) {
+    public PriorityThread(String name) {
         super(name);
     }
 
+    @Override
     public void run() {
 
         for (int i = 1; i <= 5; i++) {
@@ -18,7 +19,7 @@ class MyThread extends Thread {
             }
         }
 
-        System.out.println(getName() + " Completed.");
+        System.out.println(getName() + " completed.");
     }
 }
 
@@ -26,21 +27,14 @@ public class ThreadPriorityDemo {
 
     public static void main(String[] args) {
 
-        MyThread t1 = new MyThread("MAX Thread");
-        MyThread t2 = new MyThread("MIN Thread");
-        MyThread t3 = new MyThread("NORM Thread");
+    	PriorityThread t1 = new PriorityThread("MAX Thread");
+    	PriorityThread t2 = new PriorityThread("NORM Thread");
+    	PriorityThread t3 = new PriorityThread("MIN Thread");
 
-        // Set priorities
         t1.setPriority(Thread.MAX_PRIORITY);   // 10
-        t2.setPriority(Thread.MIN_PRIORITY);   // 1
-        t3.setPriority(Thread.NORM_PRIORITY);  // 5
+        t2.setPriority(Thread.NORM_PRIORITY);  // 5
+        t3.setPriority(Thread.MIN_PRIORITY);   // 1
 
-        // Display priorities
-        System.out.println(t1.getName() + " Priority = " + t1.getPriority());
-        System.out.println(t2.getName() + " Priority = " + t2.getPriority());
-        System.out.println(t3.getName() + " Priority = " + t3.getPriority());
-
-        // Start all threads
         t1.start();
         t2.start();
         t3.start();
