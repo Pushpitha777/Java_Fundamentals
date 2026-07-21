@@ -1,0 +1,22 @@
+package AssertMethodsAndAnnotations;
+
+
+import static org.junit.Assert.assertArrayEquals;
+
+import org.junit.Test;
+
+import JunitWithEclipse.DailyTasks;
+
+public class TestSort {
+
+    @Test
+    public void testSortValues() {
+
+        DailyTasks obj = new DailyTasks();
+
+        int[] input = {5, 2, 8, 1, 4};
+        int[] expected = {1, 2, 4, 5, 8};
+
+        assertArrayEquals(expected, obj.sortValues(input));
+    }
+}
